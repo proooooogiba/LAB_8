@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>Test-driven</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Untitled Test Case</td></tr>
+</thead>
+<tbody>
+<tr><td>LoadVars</td><td>test_num.json<datalist><option>test_num.json</option></datalist></td><td></td>
+</tr>
+<tr><td>open</td><td>http://127.0.0.1:3000/<datalist><option>http://127.0.0.1:3000/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=num<datalist><option>id=num</option><option>name=num</option><option>xpath=//input[@id='num']</option><option>xpath=//input</option><option>css=#num</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>id=num<datalist><option>id=num</option><option>name=num</option><option>xpath=//input[@id='num']</option><option>xpath=//input</option><option>css=#num</option></datalist></td><td>${num}</td>
+</tr>
+<tr><td>click</td><td>xpath=//button[@type='submit']<datalist><option>xpath=//button[@type='submit']</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Автоморфные числа'])[1]/following::button[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Число'])[1]/preceding::button[1]</option><option>xpath=(.//*[normalize-space(text()) and normalize-space(.)='Квадрат'])[1]/preceding::button[1]</option><option>xpath=//*/text()[normalize-space(.)='Посчитать']/parent::*</option><option>xpath=//button</option><option>css=button.btn.btn-primary</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
