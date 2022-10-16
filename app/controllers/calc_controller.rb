@@ -1,12 +1,21 @@
 class CalcController < ApplicationController
   def input
+    render layout: false
   end
 
   def view
     @number = params['num'].to_i
     @result = automorf(@number)
 
-    render 'view'
+    # render 'view'
+    respond_to do |format|
+      format.html
+      format.json do
+        render json:
+          {type: @result.class.to_s, value: @result}
+      end
+    end
+    
   end
 
   private
