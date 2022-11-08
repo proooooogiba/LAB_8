@@ -4,10 +4,9 @@ class CalcController < ApplicationController
   end
 
   def view
-    @number = params['num'].to_i
+    @number = params[:num].to_i
     @result = automorf(@number)
-
-    # render 'view'
+    
     respond_to do |format|
       format.html
       format.json do
