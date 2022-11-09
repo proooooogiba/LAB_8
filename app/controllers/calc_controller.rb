@@ -5,8 +5,7 @@ class CalcController < ApplicationController
   def view
     @number = params['num'].to_i
     @result = automorf(@number)
-
-    render 'view'
+    # render 'view'
   end
 
   private
