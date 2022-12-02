@@ -1,11 +1,18 @@
 class CalcController < ApplicationController
+  include ActiveModel::Serializers::Xml
+  
   def input
   end
 
   def view
     @number = params['num'].to_i
     @result = automorf(@number)
-    # render 'view'
+
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @result}
+    end
+
   end
 
   private

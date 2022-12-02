@@ -27,4 +27,9 @@ class CalcControllerTest < ActionDispatch::IntegrationTest
     get '/calc/view', params: { num: 50 }
     assert_equal(assigns[:result], [1, 5, 6, 25])
   end
+
+  # test 'should get xml type' do
+  #   get 'calc/view', params: {num: 1}
+  #   assert_equal(type(:result), :xml)
+  # end
 end
