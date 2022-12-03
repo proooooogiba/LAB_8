@@ -22,6 +22,11 @@
                 <%=submit_tag("Посчитать", class:"btn btn-primary") %>
             </div>
         <%end %>
+        <%= form_tag("/calc/show_database", :method => "get") do %>
+            <div class="col-2">
+                <%=submit_tag("Показать XML", class:"btn btn-primary") %>
+            </div>
+        <%end %>
     </div>
 </body>
 
