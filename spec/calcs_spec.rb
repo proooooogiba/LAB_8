@@ -33,14 +33,19 @@ end
 
 
 RSpec.describe Calc, type: :model do
+    include RSpec::Expectations
     describe "Manipulating with model Calc" do
         it "create Calc and check valid" do
-            calc = Calc.create
+            calc = Calc.create(:number => 1)
             expect(calc).to be_valid
         end
 
+        it "create Calc and check invalid" do
+            expect(Calc.create).to be_valid
+        end
+
         it "add new Calc and check count" do
-            calc = Calc.create
+            calc = Calc.create(:number => 1)
             expect(Calc.count).to eq(1)
         end
 
@@ -58,5 +63,13 @@ RSpec.describe Calc, type: :model do
             expect(Calc.find_by_number(calc.number)).to eq(calc)
         end
 
+        it "try to add existing number" do
+            Calc.create!(:number => 1)
+            expect(Calc.create(:number => 1)).to be_invalid
+        end
+
+        it "try to find not existing number" do
+            expect(Calc.find_by_number(1)).to eq(nil)
+        end
     end
 end

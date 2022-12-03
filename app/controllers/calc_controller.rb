@@ -4,8 +4,6 @@ class CalcController < ApplicationController
   include ActiveModel::Serializers::Xml
   include CalcHelper
 
-  # after_action :check_database, only: :view
-
   def input; end
 
   def view
@@ -22,21 +20,9 @@ class CalcController < ApplicationController
   end
 
   def show_database
-    # render :xml => Calc.all
-    # respond_to do |format|
-    #   format.xml { render xml: Calc.all}
-    # end
-
-    # respond_to do |format|
-      # format.xml {redirect_to Calc.all.to_xml, allow_other_host: true}
-      # format.html {redirect_to accounts_response_path(:result => @result)}
-    #  end
-
-    redirect_to Calc.all.to_xml, allow_other_host: true
-    # redirect_to Calc.all.to_xml, allow_other_host: true
-    # redirect_to authentication_failed_path(:format => params[:])
-    # respond_to do |format|
-    #   format.xml {render :xml => Calc.all.to_xml}
-    # end
+    respond_to do |format|
+      format.html
+      format.xml { render xml: Calc.all}
+    end
   end
 end

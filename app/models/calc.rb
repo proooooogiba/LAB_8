@@ -1,10 +1,5 @@
 class Calc < ApplicationRecord
+    validates :number, uniqueness: true
     # create for compare creation of new Calc and existing Calc in rspec test
-    def ==(o)
-        number == o.number
-      end
-    
-    def hash
-        number.hash
-    end
+    self.primary_key = :number
 end
