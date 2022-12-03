@@ -1,5 +1,5 @@
+# frozen_string_literal: true
+
 class InputController < ApplicationController
-  def view
-  end
-  
+  def view; end
 end
