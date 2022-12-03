@@ -12,6 +12,8 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
+gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -71,4 +73,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'rails-controller-testing' # гем для тестирования контроллеров (нам нужен метод assigns)
+  gem 'faker' # гем для генерирования случайных данных
+  gem 'shoulda-matchers' # гем для более простых записей тестов (будет использоваться в тестах модели)
 end
