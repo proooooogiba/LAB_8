@@ -1,36 +1,6 @@
 
-require_relative 'spec_helper'
-require_relative 'rails_helper'
-
-RSpec.describe CalcHelper do
-    include CalcHelper
-    describe "result of calculations" do
-        it "should get correct result" do
-            expect(automorf(1)).to eq([1])
-            expect(automorf(100)).to eq([1, 5, 6, 25, 76])
-            expect(automorf(50)).to eq([1, 5, 6, 25])
-            expect(automorf(-2)).to eq([])
-            expect(automorf(0)).to eq([])
-        end
-    end
-end
-
-RSpec.describe CalcController, type: :controller do
-    describe "GET #input" do
-        it "returns http success" do
-            get :input
-            expect(response).to have_http_status(:success)
-        end
-    end
-
-    describe "GET #view" do
-        it "returns http success" do
-            get :view
-            expect(response).to have_http_status(:success)
-        end
-    end
-end
-
+require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe Calc, type: :model do
     include RSpec::Expectations
