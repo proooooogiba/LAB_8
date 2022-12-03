@@ -1,19 +1,19 @@
-class CalcController < ApplicationController
-  include CalcHelper
-  
-  before_action
-  before_action :last_result, only: :view
-  after_action :results_to_xml, only: :view
+# frozen_string_literal: true
 
-  def input
-  end
+class CalcController < ApplicationController
+  include ActiveModel::Serializers::Xml
+  include CalcHelper
+
+  after_action :check_database, only: :view
+
+  def input; end
 
   def view
     @number = params['num'].to_i
-    if (Calc.find_by_number(@number).nil?)
+    if Calc.find_by_number(@number).nil?
       @ordinary_result = automorf(@number)
-      @squared_result = automorf(@number).map { |number| number**2 }  
-      Calc.create!(number: @number, ordinary: @ordinary_result.to_s, squares: @squared_result.to_s)
+      @squared_result = @ordinary_result.map { |number| number**2 }
+      Calc.create!(number: @number, ordinary: @ordinary_result.to_json, squares: @squared_result.to_json)
     else
       calc = Calc.find_by_number(@number)
       @ordinary_result = JSON.parse(calc.ordinary)
@@ -21,14 +21,8 @@ class CalcController < ApplicationController
     end
   end
 
-  def last_result
-    # @last_result = Calc.last
-    # puts @last_result.to_xml
+  def check_database
+    calc = Calc.all.to_xml
+    render xml: calc
   end
-
-  def results_to_xml
-    puts @ordinary_result.to_xml
-    puts @squared_result.to_xml  
-  end
-
 end
