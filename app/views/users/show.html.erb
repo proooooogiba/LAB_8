@@ -10,9 +10,11 @@
 </head>
 
 <body>
-<%@users.each_with_index do |user, index|%>
-    <p><%= (index + 1).to_s + ". " + user.email %></p>
-<%end%>
+    <p><strong>email</strong> <%= @user.email %></p>
+    <p><strong>created at</strong> <%= @user.created_at %></p>
+    <p><strong>updated at</strong> <%= @user.updated_at %></p>
+    <p><strong>confirmed at</strong> <%= @user.confirmed_at %></p>
+    <p><strong>confirmation token</strong> <%= @user.confirmation_token %></p>
     <div class="price">
       <div class="row align-items-end">
         <div class="col">

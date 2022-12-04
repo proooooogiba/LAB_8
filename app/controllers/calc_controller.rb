@@ -4,7 +4,10 @@ class CalcController < ApplicationController
   
   def authenticate_user!
     unless user_signed_in?
+      puts "User isn't authenticated"
       redirect_to new_user_session_path
+    else 
+      puts "User #{current_user} is authenticated"
     end
   end
 
