@@ -1,0 +1,6 @@
+<% @users.each do |user|%>
+    <strong>email</strong>
+    <p><%= user.email %></p>
+    <strong>sign up at</strong>
+    <p><%= user.created_at %></p>
+<%end%>
