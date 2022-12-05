@@ -68,9 +68,14 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'shoulda-matchers'
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
 
+gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
 gem "devise", "~> 4.8"
+gem 'factory_bot_rails'
