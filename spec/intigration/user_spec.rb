@@ -104,9 +104,16 @@ RSpec.describe Devise, type: :system do
       fill_in 'Email', with: email_user
       fill_in 'Password', with: password_user
       click_button 'Log in'
-      fill_in :num, with: 100
+      fill_in :calucaltion_field, with: 100
       click_button 'Calculate'
       expect(page).to have_current_path('/calc/view?num=100&commit=Посчитать')
+    end
+  end
+
+  describe 'User try to make calculations' do
+    scenario 'sign in with params and make calculations' do
+      visit '/calc/view?num=100&commit=Посчитать'
+      expect(page).to have_current_path(new_user_session_path)
     end
   end
 end
