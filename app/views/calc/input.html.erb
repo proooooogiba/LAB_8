@@ -16,7 +16,7 @@
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="col-7">
         <%= form_tag("/calc/view", :method => "get") do %>
-            <%=number_field_tag(:num, "Введите любое число от 1 до 100", class: "form-control", min:"1", max:"100", pattern: "^[1-9][0-9]?$|^100$", placeholder: "Введите число от 1 до 100", required: "required")%>
+            <%=number_field_tag(:number, "Введите любое число от 1 до 100", class: "form-control", min:"1", max:"100", pattern: "^[1-9][0-9]?$|^100$", placeholder: "Введите число от 1 до 100", required: "required")%>
             </div>
             <div class="col-2">
                 <%=submit_tag("Посчитать", class:"btn btn-primary") %>

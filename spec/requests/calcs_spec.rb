@@ -25,30 +25,23 @@ RSpec.describe CalcController, type: :controller do
   end
 
   describe 'GET #view' do
-    it 'returns http success' do
+    it 'returns 302' do
       get :view
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 
   describe 'GET #view with valid params' do
-    it 'returns http success' do
+    it 'returns 302' do
       get :view, params: { calc: { number: 100 } }
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 
   describe 'GET #view with invalid params' do
-    it 'returns http success' do
+    it 'returns 302' do
       get :view, params: { calc: { number: -2 } }
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'POST #input with invalid params' do
-    it 'returns http success' do
-      post :input, params: { calc: { number: -2 } }
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 

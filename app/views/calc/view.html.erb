@@ -22,7 +22,7 @@
               </tr>
             </thead>
             <tbody>
-            <% @ordinary_result.zip(@squared_result).each do |elem, squared_elem| %>
+            <% @hash.each do |elem, squared_elem| %>
               <tr>
                 <td scope="row"><%= elem %></td>
                 <td scope="row"><%= squared_elem %></td>

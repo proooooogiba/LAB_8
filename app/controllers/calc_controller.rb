@@ -3,32 +3,12 @@
 class CalcController < ApplicationController
   include CalcHelper
 
-  before_action :set_number, only: :view
-  before_action :check_is_range_number, only: :view
-  before_action :check_is_number, only: :view
-  before_action :set_integer_number, only: :view
-  before_action :info_of_request, only: :view
-
   def input; end
 
-  def set_number
-    @number = params[:num]
-  end
-
-  def set_integer_number
-    @number = @number.to_i
-  end
-
   def view
-    if Calc.find_by_number(@number).nil?
-      @ordinary_result = automorf(@number)
-      @squared_result = @ordinary_result.map { |number| number**2 }
-      Calc.create!(number: @number, ordinary: @ordinary_result.to_json, squares: @squared_result.to_json)
-    else
-      calc = Calc.find_by_number(@number)
-      @ordinary_result = JSON.parse(calc.ordinary)
-      @squared_result = JSON.parse(calc.squares)
-    end
+    
+    @calculator = Calc.new(form_params)
+    @hash = @calculator.result
   end
 
   def show_database
@@ -39,6 +19,14 @@ class CalcController < ApplicationController
   end
 
   private
+
+  def form_params
+    params.permit(:number)
+  end
+
+  def number_params
+    params.require(:calcs).permit(:number, :ordinary, :squares)
+  end
 
   def info_of_request
     flash.now[:notice] = if Calc.find_by_number(@number).nil?
