@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Calc < ApplicationRecord
-  include ActiveModel::Validations
   include CalcHelper
+
+  attr_accessor :num
 
   validates :number, presence: { message: 'не может быть пустым' }
   validates_numericality_of :number, only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 100 
@@ -14,7 +15,7 @@ class Calc < ApplicationRecord
   def result
     @num = number.to_i
     if Calc.find_by_number(@num).nil?
-      @ordinary_result = automorf(@number)
+      @ordinary_result = automorf(@num)
       @squared_result = @ordinary_result.map { |number| number**2 }
       Calc.create!(number: @num, ordinary: @ordinary_result.to_json, squares: @squared_result.to_json)
     else
@@ -24,5 +25,5 @@ class Calc < ApplicationRecord
     end
     Hash[@ordinary_result.zip @squared_result]  
   end
-
+  
 end

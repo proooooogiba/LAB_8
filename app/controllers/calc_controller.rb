@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class CalcController < ApplicationController
-  include CalcHelper
 
   def input; end
 
   def view
-    
     @calculator = Calc.new(form_params)
     @hash = @calculator.result
   end
@@ -22,10 +20,6 @@ class CalcController < ApplicationController
 
   def form_params
     params.permit(:number)
-  end
-
-  def number_params
-    params.require(:calcs).permit(:number, :ordinary, :squares)
   end
 
   def info_of_request
