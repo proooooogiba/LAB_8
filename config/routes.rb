@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'calc/input'
-  get 'calc/view', as: :view
+  get 'calc/input', as: :calc_input
+  get 'calc/view', as: :calc_view
   get 'calc/show_database'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: 'calc#input', as: :input
