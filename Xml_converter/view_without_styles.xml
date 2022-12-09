@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects type="array">
+  <object>
+    <ordinary type="integer">1</ordinary>
+    <squared type="integer">1</squared>
+  </object>
+  <object>
+    <ordinary type="integer">5</ordinary>
+    <squared type="integer">25</squared>
+  </object>
+  <object>
+    <ordinary type="integer">6</ordinary>
+    <squared type="integer">36</squared>
+  </object>
+  <object>
+    <ordinary type="integer">25</ordinary>
+    <squared type="integer">625</squared>
+  </object>
+  <object>
+    <ordinary type="integer">76</ordinary>
+    <squared type="integer">5776</squared>
+  </object>
+</objects>
